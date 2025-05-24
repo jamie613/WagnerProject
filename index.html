@@ -1,2 +1,99 @@
-<h1>Wanger Project</h1>
-<h1>華格納計畫</h1>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>華格納計畫～男低音羅俊穎獨唱會</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* 左邊選單 */
+    nav {
+      width: 200px;
+      background-color: #f4f4f4;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    nav h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav li {
+      margin: 10px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #007bff;
+    }
+
+    /* 右邊內容 */
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>內容</h2>
+    <ul>
+      <li><a href="#" onclick="showSection('about')">關於</a></li>
+      <li><a href="#" onclick="showSection('songs')">曲目</a></li>
+      <li><a href="#" onclick="showSection('analysis')">曲解</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about" class="active">
+      <h1>關於</h1>
+      <p>這是關於本場音樂會的簡介。</p>
+    </section>
+
+    <section id="songs">
+      <h1>曲目</h1>
+      <p>這裡列出所有曲目。</p>
+    </section>
+
+    <section id="analysis">
+      <h1>曲解</h1>
+      <p>這是每首曲目的解析。</p>
+    </section>
+  </main>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('main section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
+
