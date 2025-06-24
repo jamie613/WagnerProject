@@ -46,6 +46,42 @@ body{
   box-sizing:border-box;
 }
 
+/* -------- collapsible sub-menu (“歌詞”) ------------------- */
+#menu details {              /* the <details> element itself   */
+  margin: .5rem 0;
+}
+
+#menu summary {              /* the clickable heading          */
+  list-style: none;          /* remove default ▸/▾ triangle    */
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+}
+
+#menu summary::-webkit-details-marker { display: none; } /* Safari / Chrome */
+
+#menu details summary::after {            /* custom arrow */
+  content: "▸";
+  float: right;
+  transition: transform .2s;
+}
+
+#menu details[open] summary::after {      /* arrow rotates when open */
+  content: "▾";
+}
+
+#menu details ul {           /* the inner list of songs        */
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: .3rem 0 .3rem .5rem;
+}
+
+#menu details a {            /* song links                     */
+  font-size: .95rem;
+  line-height: 1.4;
+}
+
+
 /* ----- 曲目表格空行高度 ----- */
 .blank-row td {              /* spacer row */
   height: 10 px;              /* change to 8 px, 12 px, etc. */
