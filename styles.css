@@ -126,37 +126,47 @@ body{
 /* ───────── Mobile layout (≤ 768 px) ───────── */
 @media (max-width:768px){
 
-  /* show the button */
-  #menu-toggle{ display:block; }
+  /* 1 ) hamburger appears in the top-right  … */
+  #menu-toggle{
+    display:block;
+    right:1rem;           /* lives in the right corner      */
+    left:auto;
+    background:transparent;
+    color:#222;
+  }
 
-  /* body now scrolls vertically again */
-  body{ flex-direction:column; }
-
-  /* side-drawer hidden off-canvas by default */
+  /* 2 ) drawer ALMOST off-canvas by default:
+         only a 70 px sliver remains visible     */
   #menu{
-    width:70vw;               /* you can tune this */
+    width:70vw;          /* full width when open            */
     max-width:260px;
     height:100vh;
     position:fixed;
     top:0; left:0;
-    transform:translateX(-100%);
-    transition:transform .3s ease;
+    transform:translateX(calc(-100% + 70px));  /* ← 70-px strip */
+    opacity:.35;         /* make it very light               */
+    transition:
+      transform .3s ease,
+      opacity .3s ease;
     overflow-y:auto;
-    box-shadow:2px 0 8px rgba(0,0,0,.4);
-    z-index:1000;
+    box-shadow:2px 0 8px rgba(0,0,0,.25);
+    z-index:1000;        /* sits above page when open        */
   }
 
-  /* drawer open */
-  #menu.open{ transform:translateX(0); }
-
-  /* push page content a little when drawer shows (optional) */
-  body.drawer-open #content{
-    filter:blur(1px);
+  /* 3 ) when visitor taps ☰ → menu “fully open” */
+  #menu.open{
+    transform:translateX(0);
+    opacity:1;
   }
 
-  /* tidy up the inside of the drawer */
+  /* 4 ) optional: mute background content only while menu is open */
+  body.drawer-open #content{ filter:blur(1px); }
+
+  /* 5 ) inside the drawer keep list vertical */
   #menu ul{
     flex-direction:column;
     align-items:flex-start;
   }
+}
+
 }
