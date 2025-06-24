@@ -81,6 +81,14 @@ body{
   line-height: 1.4;
 }
 
+/* plain-text label inside collapsible menu (cycle title) */
+#menu .cycle-label{
+  color:#EEE;          /* lighter than main text so links stand out */
+  font-size:.9rem;
+  margin:.4rem 0 .2rem;
+  line-height:1.3;
+}
+
 
 /* ----- 曲目表格空行高度 ----- */
 .blank-row td {              /* spacer row */
