@@ -52,8 +52,13 @@ body{
 }
 
 /* ----- 演出人員簡介照片位置 ----- */
-.avatar {float:left; width:260px; max-width:40%; height:auto;
-         margin:0 1.5rem 1rem 0; object-fit:cover;}
+.avatar {
+    width: clamp(128px, 40%, 200px);  /* min, ideal, max          */
+    height: auto;
+    margin:0 1.5rem 1rem 0;
+    float:left;
+
+}
 
 /* ----- Responsive breakpoint (≤ 768 px) ----- */
 @media (max-width:768px){
