@@ -9,6 +9,24 @@ if ('serviceWorker' in navigator) {
 // ─── Tiny router (data-page links anywhere in the DOM) ───────
 const contentEl = document.getElementById('content');
 
+// ─── Hamburger drawer ───────────────────────────────
+const btn  = document.getElementById('menu-toggle');
+const nav  = document.getElementById('menu');
+
+btn.addEventListener('click', () => {
+  nav.classList.toggle('open');
+  document.body.classList.toggle('drawer-open');
+});
+
+// Close the drawer automatically when a menu link is clicked
+nav.addEventListener('click', e => {
+  if (e.target.matches('a[data-page]')){
+    nav.classList.remove('open');
+    document.body.classList.remove('drawer-open');
+  }
+});
+
+
 // Central navigation function
 async function loadPage(page) {
   try {
