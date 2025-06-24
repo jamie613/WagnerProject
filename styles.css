@@ -143,7 +143,7 @@ body{
     height:100vh;
     position:fixed;
     top:0; left:0;
-    transform:translateX(calc(-100% + 70px));  /* ← 70-px strip */
+    transform:translateX(-100%); 
     opacity:.35;         /* make it very light               */
     transition:
       transform .3s ease,
