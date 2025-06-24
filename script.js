@@ -20,10 +20,10 @@ btn.addEventListener('click', () => {
 
 // Close the drawer automatically when a menu link is clicked
 nav.addEventListener('click', e => {
-  if (e.target.matches('a[data-page]')){
-    nav.classList.remove('open');
-    document.body.classList.remove('drawer-open');
-  }
+  const link = e.target.closest('a[data-page]');
+  if (!link) return;                    // clicked something else
+  nav.classList.remove('open');         // close drawer
+  document.body.classList.remove('drawer-open');
 });
 
 
