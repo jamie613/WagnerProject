@@ -60,6 +60,12 @@ body{
 
 }
 
+/* ----- 歌詞表格格式 ----- */
+#lyrics            { width: 100%; border-collapse: collapse; }
+#lyrics td         { padding: .25em .6em; vertical-align: top; }
+#lyrics td + td    { border-left: 1px solid #ccc; }
+#lyrics .stanza td { padding-top: .75em; }
+
 /* ----- Responsive breakpoint (≤ 768 px) ----- */
 @media (max-width:768px){
   body{
