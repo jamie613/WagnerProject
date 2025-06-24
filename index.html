@@ -1,39 +1,31 @@
-<!doctype html>
-<html lang="zh-Hant">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>華格納計畫～男低音羅俊穎獨唱會</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="css/styles.css">
-  
+
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script defer src="script.js"></script>
 </head>
 <body>
-
-  <!-- Left column: menu -->
-  <aside class="sidebar">
-    <nav>
-      <ul>
-        <li><a href="index.html">首頁 / Homepage</a></li>
-        <li><a href="introduction.html">簡介 / Introduction</a></li>
-        <li><a href="program.html">曲目 / Program</a></li>
-        <li><a href="program-notes.html">曲目解說 / Program Notes</a></li>
-      </ul>
-    </nav>
-  </aside>
-  <!-- Right column: home-page content -->
-  <main class="content">
-    <h1>下載區</h1>
-
+  <nav id="menu">
+    <h1 class="logo">華格納計畫</h1>
     <ul>
-      <!-- Replace the file names and paths when you have the real downloads -->
-      <li><a href="downloads/recital-booklet.pdf" download>下載電子檔</a></li>
-      <li><a href="downloads/site-guide.pdf"    download>下載網站說明</a></li>
+      <!-- Each link carries the file it should load -->
+      <li><a href="#" data-page="content/about.html">演出者的話</a></li>
+      <li><a href="#" data-page="content/program.html">演出曲目</a></li>
+      <li><a href="#" data-page="content/performers_Lo.html">男低音：羅俊穎</a></li>
+      <li><a href="#" data-page="content/performers_KJ.html">鋼琴：黃家正</a></li>
+      <li><a href="#" data-page="content/performers_Chiao.html">導聆：焦元溥</a></li>
+      <li><a href="#" data-page="content/notes/index.html">歌詞</a></li>
     </ul>
+  </nav>
 
-    <p>
-      以上連結提供 PDF 檔下載；若檔案尚未準備好，先保留這些錨點
-      （或改成指向雲端硬碟、Dropbox 等），之後上傳檔案即可自動生效。
-    </p>
+  <!-- Section content is loaded here -->
+  <main id="content">
+    <p>Loading…</p>
   </main>
 </body>
 </html>
