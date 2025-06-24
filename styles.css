@@ -46,6 +46,10 @@ body{
   box-sizing:border-box;
 }
 
+.blank-row td {              /* spacer row */
+  height: 10 px;              /* change to 8 px, 12 px, etc. */
+}
+
 /* ----- Responsive breakpoint (≤ 768 px) ----- */
 @media (max-width:768px){
   body{
