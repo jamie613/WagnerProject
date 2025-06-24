@@ -81,13 +81,29 @@ body{
   line-height: 1.4;
 }
 
-/* plain-text label inside collapsible menu (cycle title) */
-#menu .cycle-label{
-  color:#EEE;          /* lighter than main text so links stand out */
-  font-size:.9rem;
-  margin:.4rem 0 .2rem;
-  line-height:1.3;
+/* -------- nested song-cycle sub-menus ------------------- */
+#menu details.cycle{
+  margin: .4rem 0 .3rem .5rem;   /* indent inside 歌詞 menu */
 }
+
+#menu details.cycle summary{
+  list-style:none;               /* hide native arrow       */
+  cursor:pointer;
+  font-size:.9rem;
+  color:#EEE;                    /* slightly lighter text   */
+}
+
+#menu details.cycle summary::-webkit-details-marker{display:none;}
+
+#menu details.cycle summary::after{      /* custom arrow      */
+  content:"▸";
+  float:right;
+  transition:transform .2s;
+}
+#menu details.cycle[open] summary::after{
+  content:"▾";                   /* rotates when open       */
+}
+
 
 
 /* ----- 曲目表格空行高度 ----- */
