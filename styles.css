@@ -46,9 +46,14 @@ body{
   box-sizing:border-box;
 }
 
+/* ----- 曲目表格空行高度 ----- */
 .blank-row td {              /* spacer row */
   height: 10 px;              /* change to 8 px, 12 px, etc. */
 }
+
+/* ----- 演出人員簡介照片位置 ----- */
+.avatar {float:left; width:260px; max-width:40%; height:auto;
+         margin:0 1.5rem 1rem 0; object-fit:cover;}
 
 /* ----- Responsive breakpoint (≤ 768 px) ----- */
 @media (max-width:768px){
