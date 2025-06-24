@@ -108,26 +108,54 @@ body{
 #lyrics p        { margin: 0; line-height: 1.55; }
 #lyrics .stanza  { margin-top: 1em; }
 
-/* ----- Responsive breakpoint (≤ 768 px) ----- */
+/* ───────── Hamburger button ───────── */
+#menu-toggle{
+  display:none;               /* desktop = hidden */
+  position:fixed;
+  top:1rem; left:1rem;
+  z-index:1001;
+  border:none;
+  background:#222;
+  color:#fff;
+  font-size:1.6rem;
+  line-height:1;
+  padding:.4rem .6rem;
+  border-radius:.25rem;
+}
+
+/* ───────── Mobile layout (≤ 768 px) ───────── */
 @media (max-width:768px){
-  body{
-    flex-direction:column;
-  }
+
+  /* show the button */
+  #menu-toggle{ display:block; }
+
+  /* body now scrolls vertically again */
+  body{ flex-direction:column; }
+
+  /* side-drawer hidden off-canvas by default */
   #menu{
-    width:100%;
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
+    width:70vw;               /* you can tune this */
+    max-width:260px;
+    height:100vh;
+    position:fixed;
+    top:0; left:0;
+    transform:translateX(-100%);
+    transition:transform .3s ease;
+    overflow-y:auto;
+    box-shadow:2px 0 8px rgba(0,0,0,.4);
   }
-  #menu .logo{
-    flex:1 0 100%;
+
+  /* drawer open */
+  #menu.open{ transform:translateX(0); }
+
+  /* push page content a little when drawer shows (optional) */
+  body.drawer-open #content{
+    filter:blur(1px);
   }
+
+  /* tidy up the inside of the drawer */
   #menu ul{
-    display:flex;
-    width:100%;
-    justify-content:space-around;
-  }
-  #content{
-    padding:1rem;
+    flex-direction:column;
+    align-items:flex-start;
   }
 }
