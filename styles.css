@@ -177,28 +177,10 @@ body.drawer-open #drawer-overlay{
 #back-top.visible{ display:block; opacity:.8; }
 #back-top:hover  { opacity:1; }
 
-/* ───────── Font-size ± buttons ───────── */
+/* ───────── Font-size ± buttons — default (desktop) ───────── */
 #font-buttons{
-  position:fixed;
-  right:1.2rem;
-  bottom:5.5rem;        /* sits just above the ↑ button   */
-  display:flex;
-  gap:.4rem;
-  z-index:1002;
+  display:none;              /* wide screens never see them   */
 }
-#font-buttons button{
-  width:38px; height:38px;
-  border:none;
-  border-radius:50%;
-  background:#222;
-  color:#fff;
-  font-size:1.2rem;
-  cursor:pointer;
-  box-shadow:0 2px 6px rgba(0,0,0,.4);
-  opacity:.8;
-  transition:opacity .2s;
-}
-#font-buttons button:hover{ opacity:1; }
 
 /* ───────── Mobile layout (≤ 768 px) ───────── */
 @media (max-width:768px){
@@ -208,16 +190,28 @@ body.drawer-open #drawer-overlay{
 
  /* ───────── Font-buttons on phones/tablets (≤ 768 px) ───────── */
   #font-buttons{
-    right:0.8rem;          /* tuck into the corner          */
-    bottom:0.8rem;         /* no ↑ button on phones, so lower */
-    gap:.3rem;
+    position:fixed;
+    right:0.8rem;
+    bottom:0.8rem;           /* sits in the corner            */
+    display:flex;            /* ← becomes visible only here   */
+    gap:.4rem;
+    z-index:1002;
   }
 
   #font-buttons button{
-    width:44px; height:44px;      /* bigger thumb area        */
-    font-size:1.5rem;             /* larger + / − glyphs      */
-    opacity:.9;                   /* a touch more visible     */
+    width:48px; height:48px; /* thumb-sized                   */
+    border:none;
+    border-radius:50%;
+    background:#222;
+    color:#fff;
+    font-size:1.6rem;
+    line-height:1;
+    cursor:pointer;
+    box-shadow:0 2px 6px rgba(0,0,0,.4);
+    opacity:.85;
+    transition:opacity .2s;
   }
+  #font-buttons button:hover{ opacity:1; }
   
   /* 1 ) hamburger appears in the top-right  … */
   #menu-toggle{
