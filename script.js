@@ -60,9 +60,9 @@ addEventListener('popstate', e => {
 // ─── Back-to-top button ───────────────────────────────
 const topBtn = document.getElementById('back-top');
 
-// reveal button after 400 px scroll
+// reveal button after 100 px scroll
 addEventListener('scroll', () => {
-  if (window.scrollY > 400){
+  if (window.scrollY > 100){
     topBtn.classList.add('visible');
   }else{
     topBtn.classList.remove('visible');
