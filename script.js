@@ -57,5 +57,23 @@ addEventListener('popstate', e => {
   loadPage((e.state && e.state.page) || 'content/about.html');
 });
 
+// ─── Back-to-top button ───────────────────────────────
+const topBtn = document.getElementById('back-top');
+
+// reveal button after 400 px scroll
+addEventListener('scroll', () => {
+  if (window.scrollY > 400){
+    topBtn.classList.add('visible');
+  }else{
+    topBtn.classList.remove('visible');
+  }
+});
+
+// smooth scroll to top
+topBtn.addEventListener('click', () => {
+  window.scrollTo({ top:0, behavior:'smooth' });
+});
+
+
 // Initial load
 loadPage('content/about.html');
