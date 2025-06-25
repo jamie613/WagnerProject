@@ -215,7 +215,7 @@ body.drawer-open #drawer-overlay{
   }
 
   #font-buttons.dim{                 /* ← NEW: faded state */
-    opacity:.4;                      /* tune to taste      */
+    opacity:.2;                      /* tune to taste      */
   }
   
     
