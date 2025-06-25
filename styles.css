@@ -46,6 +46,20 @@ body{
   box-sizing:border-box;
 }
 
+/* ───────── Drawer overlay ───────── */
+#drawer-overlay{
+  display:none;              /* default: invisible & non-interactive */
+  position:fixed;
+  inset:0;                   /* top:0 right:0 bottom:0 left:0 */
+  background:transparent;    /* keep it invisible              */
+  z-index:999;               /* just beneath #menu (1000)       */
+}
+
+body.drawer-open #drawer-overlay{
+  display:block;             /* becomes a click-catching layer   */
+}
+
+
 /* -------- collapsible sub-menu (“歌詞”) ------------------- */
 #menu details {              /* the <details> element itself   */
   margin: .5rem 0;
