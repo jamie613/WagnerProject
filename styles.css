@@ -196,6 +196,8 @@ body.drawer-open #drawer-overlay{
     display:flex;            /* ← becomes visible only here   */
     gap:.4rem;
     z-index:1002;
+    opacity:.9;                      /* full strength at page top */
+    transition:opacity .3s;
   }
 
   #font-buttons button{
@@ -211,8 +213,12 @@ body.drawer-open #drawer-overlay{
     opacity:.85;
     transition:opacity .2s;
   }
-  #font-buttons button:hover{ opacity:1; }
+
+  #font-buttons.dim{                 /* ← NEW: faded state */
+    opacity:.4;                      /* tune to taste      */
+  }
   
+    
   /* 1 ) hamburger appears in the top-right  … */
   #menu-toggle{
     display:block;
