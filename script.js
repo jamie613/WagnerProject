@@ -84,6 +84,32 @@ topBtn.addEventListener('click', () => {
   window.scrollTo({ top:0, behavior:'smooth' });
 });
 
+// ─── Font-size controls ──────────────────────────────────
+const plus  = document.getElementById('font-plus');
+const minus = document.getElementById('font-minus');
+
+let scale = parseFloat(localStorage.getItem('fontScale')) || 1;  // 1 × = 100 %
+
+function applyScale(){
+  document.documentElement.style.fontSize = (100 * scale) + '%';
+}
+applyScale();                               // set size on page load
+
+plus .addEventListener('click', () => {
+  if (scale < 1.6){                         // upper cap ≈ 160 %
+    scale = Math.round((scale + 0.1)*10)/10;
+    applyScale();
+    localStorage.setItem('fontScale', scale);
+  }
+});
+minus.addEventListener('click', () => {
+  if (scale > 0.7){                         // lower cap ≈ 70 %
+    scale = Math.round((scale - 0.1)*10)/10;
+    applyScale();
+    localStorage.setItem('fontScale', scale);
+  }
+});
+
 
 // Initial load
 loadPage('content/about.html');
