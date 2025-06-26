@@ -233,7 +233,7 @@ body.drawer-open #drawer-overlay{ display:block; }
 
   #theme-switch .slash{        /* keep the slash legible       */
     color:#bbb;
-    font-size:1.4rem;
+    font-size:1rem;
   }
 
   /* back-to-top hidden on mobile */
