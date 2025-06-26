@@ -110,38 +110,34 @@ minus.addEventListener('click', () => {
   }
 });
 
-// ─── Theme toggle ───────────────────────────────────────────
-const themeBtn = document.getElementById('theme-toggle');
-const root     = document.documentElement;
+// ─── Theme switch (☀️ / 🌙) ────────────────────────────────
+const root      = document.documentElement;
+const btnLight  = document.getElementById('light-btn');
+const btnDark   = document.getElementById('dark-btn');
 
-// load saved choice (or OS preference)
+function setTheme(mode){
+  if (mode === 'dark'){
+    root.classList.add('theme-dark');
+    btnDark.classList.add('active');   btnLight.classList.remove('active');
+  }else{
+    root.classList.remove('theme-dark');
+    btnLight.classList.add('active');  btnDark.classList.remove('active');
+  }
+  localStorage.setItem('theme', mode);
+}
+
+/* initialise from saved value or OS preference */
 const saved = localStorage.getItem('theme');
 if (saved){
-  if (saved === 'dark') enableDark();
+  setTheme(saved);
 }else if (window.matchMedia('(prefers-color-scheme: dark)').matches){
-  enableDark();
+  setTheme('dark');
+}else{
+  setTheme('light');
 }
 
-themeBtn.addEventListener('click', () => {
-  if (root.classList.contains('theme-dark')){
-    disableDark();
-  }else{
-    enableDark();
-  }
-});
-
-function enableDark(){
-  root.classList.add('theme-dark');
-  themeBtn.textContent = '☀︎';
-  localStorage.setItem('theme','dark');
-}
-function disableDark(){
-  root.classList.remove('theme-dark');
-  themeBtn.textContent = '🌙';
-  localStorage.setItem('theme','light');
-}
-
-
+btnLight.addEventListener('click', () => setTheme('light'));
+btnDark .addEventListener('click', () => setTheme('dark'));
 
 // Initial load
 loadPage('content/about.html');
