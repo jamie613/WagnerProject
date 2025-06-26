@@ -1,10 +1,39 @@
-/* ----- Layout ----- */
-body{
-  margin:0;
-  display:flex;
-  min-height:100vh;
-  font-family: system-ui, sans-serif;
+/* ==========  THEME VARIABLES  ========== */
+:root{                      /* light / default */
+  --bg:  #ffffff;
+  --bg-sec:#f4f4f4;
+  --fg:  #111111;
+  --acc: #0066cc;           /* accent link hover */
 }
+
+:root.theme-dark{           /* “concert mode” */
+  --bg:  #121212;
+  --bg-sec:#1e1e1e;
+  --fg:  #e0e0e0;
+  --acc: #7db7ff;
+}
+
+/* apply everywhere ---------------------- */
+body{ background:var(--bg); color:var(--fg); }
+#menu{ background:#222; }                 /* keep nav fixed dark   */
+#menu a{ color:var(--fg); }
+#menu a:hover,
+#menu a:focus{ color:var(--acc); text-decoration:underline; }
+#content{ background:var(--bg-sec); }     /* subtle panel contrast */
+
+/* --- theme toggle button --- */
+#theme-toggle{
+  position:fixed;
+  left:1.2rem; bottom:1.2rem;
+  width:44px; height:44px;
+  border:none; border-radius:50%;
+  background:#222; color:#fff;
+  font-size:1.3rem; line-height:1;
+  cursor:pointer; z-index:1003;
+  box-shadow:0 2px 6px rgba(0,0,0,.4);
+  opacity:.85; transition:opacity .2s;
+}
+#theme-toggle:hover{ opacity:1; }
 
 #menu{
   background:#222;
