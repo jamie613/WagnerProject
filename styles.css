@@ -225,7 +225,7 @@ body.drawer-open #drawer-overlay{ display:block; }
   }
 
   #theme-switch button{
-    width:14px; height:14px;   /* thumb-size                   */
+    /*width:14px; height:14px;*/   /* thumb-size                   */
     font-size:1rem;          /* big glyphs                   */
     background:#666;           /* lighter disc on dark drawer  */
     opacity:.95;
