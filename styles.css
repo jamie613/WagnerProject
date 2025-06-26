@@ -63,7 +63,7 @@ body{
 #menu li{ margin:.5rem 0; }
 
 #menu a{
-  color:var(--fg);
+  color:#ffffff;
   text-decoration:none;
 }
 
@@ -150,19 +150,17 @@ body{
 
 /* theme toggle lives inside #menu (absolute) */
 #theme-toggle{
-  position:absolute;
-  top:.4rem;
-  right:.4rem;
-  width:36px; height:36px;
-  border:none;
-  border-radius:50%;
+  position:static;
+  display:block;
+  margin:.3rem 0 1rem;           /* spacing under the logo */
+  width:40px; height:40px;
   background:#444;
+  border:none; border-radius:50%;
   color:#fff;
   font-size:1.2rem;
   cursor:pointer;
   box-shadow:0 1px 4px rgba(0,0,0,.4);
-  opacity:.85;
-  transition:opacity .2s;
+  opacity:.85; transition:opacity .2s;
 }
 
 #theme-toggle:hover{ opacity:1; }
@@ -247,7 +245,7 @@ body.drawer-open #drawer-overlay{ display:block; }
     right:1rem;
     left:auto;
     background:transparent;
-    color:#222;
+    color:#ffffff;
   }
 
   /* drawer off-canvas by default */
