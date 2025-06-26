@@ -220,6 +220,22 @@ body.drawer-open #drawer-overlay{ display:block; }
    =======================================================*/
 @media (max-width:768px){
 
+  #theme-switch{
+    gap:.6rem;                 /* a bit more finger space      */
+  }
+
+  #theme-switch button{
+    width:52px; height:52px;   /* thumb-size                   */
+    font-size:1.8rem;          /* big glyphs                   */
+    background:#666;           /* lighter disc on dark drawer  */
+    opacity:.95;
+  }
+
+  #theme-switch .slash{        /* keep the slash legible       */
+    color:#bbb;
+    font-size:1.4rem;
+  }
+
   /* back-to-top hidden on mobile */
   #back-top{ display:none !important; }
 
