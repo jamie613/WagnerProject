@@ -13,282 +13,270 @@
   --acc: #7db7ff;
 }
 
-/* apply everywhere ---------------------- */
-body{ background:var(--bg); color:var(--fg); }
-#menu{ background:#222; }                 /* keep nav fixed dark   */
-#menu a{ color:var(--fg); }
-#menu a:hover,
-#menu a:focus{ color:var(--acc); text-decoration:underline; }
-#content{ background:var(--bg-sec); }     /* subtle panel contrast */
+/* =========================================================
+   GLOBAL LAYOUT & TYPOGRAPHY
+   =======================================================*/
+html{ font-family:system-ui, sans-serif; }
 
-/* --- theme toggle button --- */
-#theme-toggle{
-  position:fixed;
-  left:1.2rem; bottom:1.2rem;
-  width:44px; height:44px;
-  border:none; border-radius:50%;
-  background:#222; color:#fff;
-  font-size:1.3rem; line-height:1;
-  cursor:pointer; z-index:1003;
-  box-shadow:0 2px 6px rgba(0,0,0,.4);
-  opacity:.85; transition:opacity .2s;
-}
-#theme-toggle:hover{ opacity:1; }
-
-#menu{
-  background:#222;
-  color:white;
-  width:220px;
-  flex-shrink:0;
-  padding:1rem;
-  box-sizing:border-box;
-}
-
-#menu .logo{
-  margin:0 0 1rem 0;
-  font-size:1.3rem;
-}
-
-#menu ul{
-  list-style:none;
-  padding:0;
+body{
   margin:0;
-}
-
-#menu li{
-  margin:0.5rem 0;
-}
-
-#menu a{
-  color:white;
-  text-decoration:none;
-}
-
-#menu a:hover,
-#menu a:focus{
-  text-decoration:underline;
+  display:flex;                  /* two-column desktop layout   */
+  min-height:100vh;
+  background:var(--bg);
+  color:var(--fg);
 }
 
 #content{
   flex:1;
   padding:2rem;
   box-sizing:border-box;
+  background:var(--bg-sec);
 }
 
-/* ───────── Drawer overlay ───────── */
-#drawer-overlay{
-  display:none;              /* default: invisible & non-interactive */
-  position:fixed;
-  inset:0;                   /* top:0 right:0 bottom:0 left:0 */
-  background:transparent;    /* keep it invisible              */
-  z-index:999;               /* just beneath #menu (1000)       */
+/* =========================================================
+   LEFT MENU (desktop)  +  DRAWER (mobile)
+   =======================================================*/
+
+#menu{
+  position:relative;             /* enables absolute children   */
+  background:#222;               /* always dark nav             */
+  color:white;
+  width:220px;                   /* desktop width               */
+  flex-shrink:0;
+  padding:1rem;
+  box-sizing:border-box;
 }
 
-body.drawer-open #drawer-overlay{
-  display:block;             /* becomes a click-catching layer   */
+/* logo/title */
+#menu .logo{
+  margin:0 0 1rem;
+  font-size:1.3rem;
 }
 
-
-/* -------- collapsible sub-menu (“歌詞”) ------------------- */
-#menu details {              /* the <details> element itself   */
-  margin: .5rem 0;
+/* menu list defaults */
+#menu ul{
+  list-style:none;
+  margin:0;
+  padding:0;
 }
 
-#menu summary {              /* the clickable heading          */
-  list-style: none;          /* remove default ▸/▾ triangle    */
-  cursor: pointer;
-  color: white;
-  font-size: 1rem;
+#menu li{ margin:.5rem 0; }
+
+#menu a{
+  color:var(--fg);
+  text-decoration:none;
 }
 
-#menu summary::-webkit-details-marker { display: none; } /* Safari / Chrome */
-
-#menu details summary::after {            /* custom arrow */
-  content: "▸";
-  float: right;
-  transition: transform .2s;
+#menu a:hover,
+#menu a:focus{
+  color:var(--acc);
+  text-decoration:underline;
 }
 
-#menu details[open] summary::after {      /* arrow rotates when open */
-  content: "▾";
-}
+/* ---------------------------------------------------------
+   Collapsible sections (歌詞 & nested cycles)
+---------------------------------------------------------*/
+#menu details{ margin:.5rem 0; }
 
-#menu details ul {           /* the inner list of songs        */
-  list-style: disc;
-  padding-left: 1.2rem;
-  margin: .3rem 0 .3rem .5rem;
-}
-
-#menu details a {            /* song links                     */
-  font-size: .95rem;
-  line-height: 1.4;
-}
-
-/* -------- nested song-cycle sub-menus ------------------- */
-#menu details.cycle{
-  margin: .4rem 0 .3rem .5rem;   /* indent inside 歌詞 menu */
-}
-
-#menu details.cycle summary{
-  list-style:none;               /* hide native arrow       */
+#menu summary{
+  list-style:none;
   cursor:pointer;
-  font-size:.9rem;
-  color:#EEE;                    /* slightly lighter text   */
+  font-size:1rem;
 }
 
-#menu details.cycle summary::-webkit-details-marker{display:none;}
+#menu summary::-webkit-details-marker{ display:none; }
 
-#menu details.cycle summary::after{      /* custom arrow      */
+#menu details summary::after{
   content:"▸";
   float:right;
   transition:transform .2s;
 }
-#menu details.cycle[open] summary::after{
-  content:"▾";                   /* rotates when open       */
+
+#menu details[open] summary::after{ content:"▾"; }
+
+/* nested song-cycle tweaks */
+#menu details.cycle{
+  margin:.4rem 0 .3rem .5rem;
 }
 
-
-
-/* ----- 曲目表格空行高度 ----- */
-.blank-row td {              /* spacer row */
-  height: 10 px;              /* change to 8 px, 12 px, etc. */
+#menu details.cycle summary{
+  font-size:.9rem;
+  color:#e0e0e0;
 }
 
-/* ----- 演出人員簡介照片位置 ----- */
-.avatar {
-    width: clamp(128px, 40%, 200px);  /* min, ideal, max          */
-    height: auto;
-    margin:0 1.5rem 1rem 0;
-    float:left;
-
+/* song list */
+#menu details ul{
+  list-style:disc;
+  padding-left:1.2rem;
+  margin:.3rem 0 .3rem .5rem;
 }
 
-/* ----- 歌詞格式 ----- */
-#lyrics p        { margin: 0; line-height: 1.55; }
-#lyrics .stanza  { margin-top: 1em; }
+#menu details a{
+  font-size:.95rem;
+  line-height:1.4;
+}
 
-/* ───────── Hamburger button ───────── */
+/* =========================================================
+   UTILITY CLASSES
+   =======================================================*/
+.blank-row td{ height:10px; }
+
+.avatar{
+  width:clamp(128px, 40%, 200px);
+  height:auto;
+  margin:0 1.5rem 1rem 0;
+  float:left;
+}
+
+#lyrics p       { margin:0; line-height:1.55; }
+#lyrics .stanza { margin-top:1em; }
+
+/* =========================================================
+   TOP-RIGHT MENU TOGGLE (hamburger)  &  THEME TOGGLE
+   =======================================================*/
 #menu-toggle{
-  display:none;               /* desktop = hidden */
+  display:none;                  /* shown only on mobile */
   position:fixed;
-  top:1rem; left:1rem;
+  top:1rem;
+  left:1rem;
   z-index:1001;
   border:none;
   background:#222;
   color:#fff;
   font-size:1.6rem;
-  line-height:1;
   padding:.4rem .6rem;
   border-radius:.25rem;
 }
 
-/* ───────── Back-to-top button ───────── */
+/* theme toggle lives inside #menu (absolute) */
+#theme-toggle{
+  position:absolute;
+  top:.4rem;
+  right:.4rem;
+  width:36px; height:36px;
+  border:none;
+  border-radius:50%;
+  background:#444;
+  color:#fff;
+  font-size:1.2rem;
+  cursor:pointer;
+  box-shadow:0 1px 4px rgba(0,0,0,.4);
+  opacity:.85;
+  transition:opacity .2s;
+}
+
+#theme-toggle:hover{ opacity:1; }
+
+/* =========================================================
+   FLOATING ACTION BUTTONS (mobile)
+   =======================================================*/
 #back-top{
-  display:none;                 /* default: hidden until JS shows it      */
+  display:none;                  /* JS toggles .visible        */
   position:fixed;
   right:1.2rem;
   bottom:1.2rem;
   width:44px; height:44px;
   border:none;
   border-radius:50%;
-  font-size:1.4rem;
-  line-height:1;
   background:#222;
   color:#fff;
+  font-size:1.4rem;
   cursor:pointer;
   box-shadow:0 2px 6px rgba(0,0,0,.4);
-  opacity:0;                   /* fade-in effect                          */
+  opacity:0;
   transition:opacity .3s;
-  z-index:1002;                /* above drawer & content                  */
+  z-index:1002;
 }
 
-/* show once JS toggles the class */
 #back-top.visible{ display:block; opacity:.8; }
 #back-top:hover  { opacity:1; }
 
-/* ───────── Font-size ± buttons — default (desktop) ───────── */
-#font-buttons{
-  display:none;              /* wide screens never see them   */
+/* font-size ± buttons (mobile only) */
+#font-buttons{ display:none; }     /* hidden on desktop          */
+/* =========================================================
+   CLICK-THROUGH OVERLAY (closes drawer)
+   =======================================================*/
+#drawer-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:transparent;
+  z-index:999;
 }
 
-/* ───────── Mobile layout (≤ 768 px) ───────── */
-@media (max-width:768px){
-  
-  /* hide completely on small screens */ 
-  #back-top{ display:none !important;}
+body.drawer-open #drawer-overlay{ display:block; }
 
- /* ───────── Font-buttons on phones/tablets (≤ 768 px) ───────── */
+/* =========================================================
+   MOBILE LAYOUT (≤ 768 px)
+   =======================================================*/
+@media (max-width:768px){
+
+  /* back-to-top hidden on mobile */
+  #back-top{ display:none !important; }
+
+  /* show font-size controls */
   #font-buttons{
     position:fixed;
-    right:0.8rem;
-    bottom:0.8rem;           /* sits in the corner            */
-    display:flex;            /* ← becomes visible only here   */
+    right:.8rem;
+    bottom:.8rem;
+    display:flex;
     gap:.4rem;
     z-index:1002;
-    opacity:.9;                      /* full strength at page top */
+    opacity:.9;
     transition:opacity .3s;
   }
 
+  #font-buttons.dim{ opacity:.2; }
+
   #font-buttons button{
-    width:48px; height:48px; /* thumb-sized                   */
+    width:48px; height:48px;
     border:none;
     border-radius:50%;
     background:#222;
     color:#fff;
     font-size:1.6rem;
-    line-height:1;
     cursor:pointer;
     box-shadow:0 2px 6px rgba(0,0,0,.4);
     opacity:.85;
     transition:opacity .2s;
   }
 
-  #font-buttons.dim{                 /* ← NEW: faded state */
-    opacity:.2;                      /* tune to taste      */
-  }
-  
-    
-  /* 1 ) hamburger appears in the top-right  … */
+  /* hamburger visible */
   #menu-toggle{
     display:block;
-    right:1rem;           /* lives in the right corner      */
+    right:1rem;
     left:auto;
     background:transparent;
     color:#222;
   }
 
-  /* 2 ) drawer ALMOST off-canvas by default:
-         only a 70 px sliver remains visible     */
+  /* drawer off-canvas by default */
   #menu{
-    width:70vw;          /* full width when open            */
+    width:70vw;
     max-width:260px;
     height:100vh;
     position:fixed;
     top:0; left:0;
-    transform:translateX(-100%); 
-    opacity:.35;         /* make it very light               */
-    transition:
-      transform .3s ease,
-      opacity .3s ease;
+    transform:translateX(-100%);
+    opacity:.35;
+    transition:transform .3s ease, opacity .3s ease;
     overflow-y:auto;
     box-shadow:2px 0 8px rgba(0,0,0,.25);
-    z-index:1000;        /* sits above page when open        */
+    z-index:1000;
   }
 
-  /* 3 ) when visitor taps ☰ → menu “fully open” */
+  /* drawer open */
   #menu.open{
     transform:translateX(0);
     opacity:1;
   }
 
-  /* 4 ) optional: mute background content only while menu is open */
+  /* blur page while drawer open */
   body.drawer-open #content{ filter:blur(1px); }
 
-  /* 5 ) inside the drawer keep list vertical */
+  /* vertical list layout in drawer */
   #menu ul{
     flex-direction:column;
     align-items:flex-start;
   }
-}
-
 }
