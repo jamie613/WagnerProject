@@ -148,22 +148,33 @@ body{
   border-radius:.25rem;
 }
 
-/* theme toggle lives inside #menu (absolute) */
-#theme-toggle{
-  position:static;
-  display:block;
-  margin:.3rem 0 1rem;           /* spacing under the logo */
-  width:40px; height:40px;
-  background:#444;
-  border:none; border-radius:50%;
-  color:#fff;
-  font-size:1.2rem;
-  cursor:pointer;
-  box-shadow:0 1px 4px rgba(0,0,0,.4);
-  opacity:.85; transition:opacity .2s;
+/* ───────── theme switch (☀︎ / 🌙) ───────── */
+#theme-switch{
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+  margin:.3rem 0 1rem;              /* spacing below the logo */
 }
 
-#theme-toggle:hover{ opacity:1; }
+#theme-switch button{
+  width:34px; height:34px;
+  border:none; border-radius:50%;
+  background:#444;
+  color:#fff;
+  font-size:1.1rem;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 1px 4px rgba(0,0,0,.4);
+  opacity:.7;
+  transition:opacity .2s;
+}
+
+#theme-switch .slash{ color:#888; user-select:none; }
+
+#theme-switch button.active,
+#theme-switch button:hover{
+  opacity:1;                       /* highlight current / hover */
+}
 
 /* =========================================================
    FLOATING ACTION BUTTONS (mobile)
