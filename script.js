@@ -110,6 +110,38 @@ minus.addEventListener('click', () => {
   }
 });
 
+// ─── Theme toggle ───────────────────────────────────────────
+const themeBtn = document.getElementById('theme-toggle');
+const root     = document.documentElement;
+
+// load saved choice (or OS preference)
+const saved = localStorage.getItem('theme');
+if (saved){
+  if (saved === 'dark') enableDark();
+}else if (window.matchMedia('(prefers-color-scheme: dark)').matches){
+  enableDark();
+}
+
+themeBtn.addEventListener('click', () => {
+  if (root.classList.contains('theme-dark')){
+    disableDark();
+  }else{
+    enableDark();
+  }
+});
+
+function enableDark(){
+  root.classList.add('theme-dark');
+  themeBtn.textContent = '☀︎';
+  localStorage.setItem('theme','dark');
+}
+function disableDark(){
+  root.classList.remove('theme-dark');
+  themeBtn.textContent = '🌙';
+  localStorage.setItem('theme','light');
+}
+
+
 
 // Initial load
 loadPage('content/about.html');
