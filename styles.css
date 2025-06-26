@@ -272,8 +272,12 @@ body.drawer-open #drawer-overlay{ display:block; }
     right:1rem;
     left:auto;
     background:transparent;
-    color:#ffffff;
+    color:#222;
   }
+
+  .theme-dark #menu-toggle{
+  color:#fff;          /* white glyph on dark background */
+}
 
   /* drawer off-canvas by default */
   #menu{
