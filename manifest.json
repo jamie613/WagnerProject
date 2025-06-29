@@ -1,0 +1,20 @@
+{
+  "name": "華格納計畫～男低音羅俊穎獨唱會",               /* ← EDIT-ME (full name) */
+  "short_name": "WagnerProj.",                 /* ← EDIT-ME (homescreen label) */
+  "start_url": ".",                        /* keep */
+  "display": "standalone",
+  "background_color": "#121212",           /* ← match your nav bg */
+  "theme_color": "#222222",                /* status-bar colour */
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
