@@ -3,7 +3,7 @@
   --bg:  #ffffff;
   --bg-sec:#f4f4f4;
   --fg:  #111111;
-  --acc: #0066cc;           /* accent link hover */
+  --acc: #7db7ff;           /* accent link hover */
 }
 
 :root.theme-dark{           /* “concert mode” */
