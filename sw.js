@@ -16,7 +16,7 @@ const SHELL = [
   './icon-192.png',
   './icon-512.png'
 
-  /* content folder -------------------------------------- */\
+  /* content folder -------------------------------------- */
   './content/about.html',
   './content/program.html',
   './content/help.html',
@@ -47,7 +47,7 @@ const SHELL = [
 ];
 
 /* ---------- 2.  CACHE NAMES (rarely change) ------------- */
-const PRECACHE   = 'program-shell-v2';
+const PRECACHE   = 'program-shell-v2.1';
 const RUNTIME    = 'program-runtime';
 
 /* ---------- 3.  INSTALL – cache the shell --------------- */
