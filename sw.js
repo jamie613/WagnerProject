@@ -47,7 +47,7 @@ const SHELL = [
 ];
 
 /* ---------- 2.  CACHE NAMES (rarely change) ------------- */
-const PRECACHE   = 'program-shell-v2.1.2';
+const PRECACHE   = 'program-shell-v2.2';
 const RUNTIME    = 'program-runtime';
 
 /* ---------- 3.  INSTALL – cache the shell --------------- */
