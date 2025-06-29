@@ -29,7 +29,7 @@ const SHELL = [
   /* performer images (case-sensitive) */
   './content/KJ.jpg',
   './content/Lo.jpg',
-  './content/chiao.jpg'
+  './content/chiao.jpg',
 
   /* ---------- lyrics folder ---------- */
   './content/lyrics/1_1_Der_Engel.html',
@@ -47,7 +47,7 @@ const SHELL = [
 ];
 
 /* ---------- 2.  CACHE NAMES (rarely change) ------------- */
-const PRECACHE   = 'program-shell-v2.1.1';
+const PRECACHE   = 'program-shell-v2.1.2';
 const RUNTIME    = 'program-runtime';
 
 /* ---------- 3.  INSTALL – cache the shell --------------- */
