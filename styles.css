@@ -62,6 +62,14 @@ body{
 
 #menu li{ margin:.5rem 0; }
 
+/* a true blank-spacer row */
+li.blank-row{
+  list-style:none;            /* hides the bullet      */
+  height:1rem;                /* vertical space (≈16 px) */
+  margin:0;                   /* cancels the .5 rem     */
+  padding:0;
+}
+
 #menu a{
   color:#ffffff;
   text-decoration:none;
