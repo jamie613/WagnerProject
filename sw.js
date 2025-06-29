@@ -15,7 +15,35 @@ const SHELL = [
   './manifest.json',
   './icon-192.png',
   './icon-512.png'
-  /* add extra CSS/JS that rarely change here */
+
+  /* content folder -------------------------------------- */\
+  './content/about.html',
+  './content/program.html',
+  './content/help.html',
+
+  /* performer pages */
+  './content/performers_Chiao.html',
+  './content/performers_KJ.html',
+  './content/performers_Lo.html',
+
+  /* performer images (case-sensitive) */
+  './content/KJ.jpg',
+  './content/Lo.jpg',
+  './content/chiao.jpg'
+
+  /* ---------- lyrics folder ---------- */
+  './content/lyrics/1_1_Der_Engel.html',
+  './content/lyrics/1_2_Stehe_still.html',
+  './content/lyrics/1_3_Im_Treibhaus.html',
+  './content/lyrics/1_4_Schmerzen.html',
+  './content/lyrics/1_5_Traume.html',
+  './content/lyrics/2_1_Quand_je_dors.html',
+  './content/lyrics/2_2_Gastibelza.html',
+  './content/lyrics/3_1_arias.html',
+  './content/lyrics/3_2_arias.html',
+  './content/lyrics/3_3_arias.html',
+  './content/lyrics/3_4_arias.html',
+  './content/lyrics/3_5_arias.html'
 ];
 
 /* ---------- 2.  CACHE NAMES (rarely change) ------------- */
